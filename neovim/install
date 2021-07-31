@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+mkdir -p ~/.config/nvim/plugin
+mkdir -p ~/.config/nvim/after/plugin
+mkdir -p ~/.config/nvim/lua
+
+for f in `find . -regex ".*\.vim$\|.*\.lua$"`; do
+  rm -rf ~/.config/nvim/$f
+done 
+
+cd /home/chris/.config/nvim
+ln -s /home/chris/.dofiles/neovim/init.vim ./
+for f in /home/chris/.dofiles/neovim/plugin/*; do
+    cd /home/chris/.config/nvim/plugin/
+    ln -s $f ./
+done
+
+for f in /home/chris/.dofiles/neovim/after/plugin/*; do
+    cd /home/chris/.config/nvim/after/plugin/
+    ln -s $f ./
+done
+
+for f in /home/chris/.dofiles/neovim/lua/*; do
+    cd /home/chris/.config/nvim/lua/
+    ln -s $f ./
+done
