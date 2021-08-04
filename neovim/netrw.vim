@@ -1,1 +1,0 @@
-/home/chris/.dotfiles/neovim/./plugin/netrw.vim

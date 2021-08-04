@@ -49,18 +49,16 @@ Plug 'benjie/neomake-local-eslint.vim'
 Plug 'stephpy/vim-php-cs-fixer'
 
 call plug#end()
-source $HOME/.config/nvim/config/general.vimrc
 source $HOME/.config/nvim/config/plugins.vimrc
-source $HOME/.config/nvim/config/keys.vimrc
 source $HOME/.config/nvim/config/chris.vimrc
 source $HOME/.config/nvim/config/python.vimrc
-" PLUGINS
-source $HOME/.config/nvim/plugin/telescope.vim
 " LUA
 source $HOME/.config/nvim/config/general.lua
-source $HOME/.config/nvim/lua/telescope.lua
+source $HOME/.config/nvim/lua/_telescope.lua
 source $HOME/.config/nvim/plugin/netrw.vim
 source $HOME/.config/nvim/plugin/set.vim
+" PLUGINS
+" source $HOME/.config/nvim/plugin/telescope.vim
 
 
 filetype on
@@ -85,3 +83,66 @@ augroup CHRIS
 augroup END
 
 nnoremap <leader>pv :Ex<CR>
+
+" --------
+" Movement
+" --------
+" Move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" Move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+"----------
+" Folds
+"----------
+" Space open/closes folds
+" noremap <space> za     
+
+
+"--------
+" Buffers
+" -------
+nnoremap <C-b>n :bn<CR>
+nnoremap <C-b>p :bp<CR>
+
+
+"-------
+" ???
+" ------
+" Highligh last inserted text
+nnoremap gV `[V`]
+
+" Turn off highlight search
+nnoremap <leader><space> :nohlsearch<CR>
+
+tnoremap <Esc> <C-\><C-n>
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+inoremap jk <ESC>
+inoremap kj <ESC> 
+
+noremap ;; $a;<ESC>
+noremap <LEADER>p "+p
+
+" Enable folding with the spacebar
+" nnoremap <space> za
+
+
+cmap vime tabe $MYVIMRC
+cmap sov so $MYVIMRC
+
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
