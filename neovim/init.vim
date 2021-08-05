@@ -23,6 +23,10 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 
 Plug 'sbdchd/neoformat'
@@ -49,7 +53,7 @@ Plug 'benjie/neomake-local-eslint.vim'
 Plug 'stephpy/vim-php-cs-fixer'
 
 call plug#end()
-source $HOME/.config/nvim/config/plugins.vimrc
+" source $HOME/.config/nvim/config/plugins.vimrc
 source $HOME/.config/nvim/config/chris.vimrc
 source $HOME/.config/nvim/config/python.vimrc
 " LUA
@@ -59,6 +63,7 @@ source $HOME/.config/nvim/plugin/netrw.vim
 source $HOME/.config/nvim/plugin/set.vim
 " PLUGINS
 " source $HOME/.config/nvim/plugin/telescope.vim
+ source $HOME/.config/nvim/plugin/_vsnip.vim
 
 
 filetype on
