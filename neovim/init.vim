@@ -27,9 +27,10 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'bmatcuk/stylelint-lsp'
+Plug 'mhartington/formatter.nvim'
 
 
-Plug 'sbdchd/neoformat'
 " CSS
 Plug 'ai/autoprefixer'
 
@@ -59,6 +60,7 @@ source $HOME/.config/nvim/config/python.vimrc
 " LUA
 source $HOME/.config/nvim/config/general.lua
 source $HOME/.config/nvim/lua/_telescope.lua
+source $HOME/.config/nvim/lua/_formatter.lua
 source $HOME/.config/nvim/plugin/netrw.vim
 source $HOME/.config/nvim/plugin/set.vim
 " PLUGINS
