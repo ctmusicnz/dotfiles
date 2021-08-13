@@ -31,15 +31,15 @@ require('formatter').setup({
           }
         end
     },
-    php = {
+    -- php = {
       -- PHPfmt
-      function()
-        return {
-          exe = "phpcbf",
-          args = {},
-          stdin = true
-        }
-      end
-    }
+    --   function()
+    --     return {
+    --       exe = "phpcbf",
+    --       args = {},
+    --       stdin = true
+    --     }
+    --   end
+    -- }
   }
 })

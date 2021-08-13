@@ -29,6 +29,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'bmatcuk/stylelint-lsp'
 Plug 'mhartington/formatter.nvim'
+Plug 'itchyny/vim-qfedit'
 
 
 " CSS
@@ -154,3 +155,53 @@ cmap sov so $MYVIMRC
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pf :lua require('telescope.builtin').find_files({})<CR>
+
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+nmap <silent> <C-q> :call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <C-k> :cn<CR>zzzv
+nmap <silent> <C-j> :cp<CR>zzzv
+nmap <silent> <leader>k :ln<CR>
+nmap <silent> <leader>j :lp<CR>
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+
+nnoremap Y y$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+
