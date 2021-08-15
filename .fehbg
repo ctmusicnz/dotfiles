@@ -1,0 +1,3 @@
+#!/bin/bash
+feh --bg-scale --zoom fill ~/Downloads/wallpaper-master/ubuntu-2.png 
+
