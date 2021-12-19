@@ -27,3 +27,4 @@ set scrolloff=8
 set signcolumn=yes
 set colorcolumn=80
 set listchars=trail:-
+set formatoptions-=cro

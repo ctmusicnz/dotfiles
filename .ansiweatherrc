@@ -1,0 +1,4 @@
+location:Hokitika
+fetch_cmd:wget -qO-
+units:metric
+symbols:true
