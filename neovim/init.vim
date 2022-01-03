@@ -87,8 +87,8 @@ nmap <leader>x :!xdg-open %<cr><cr>
 imap jj <esc>
 
 " Insert ; or , at end of line easily
-imap ;; <esc>A;<esc>
-imap ,, <esc>A,<esc>
+nnoremap ;; A;<esc>
+nnoremap ,, A,<esc>
 
 cmap w!! %!sudo tee > /dev/null %
 
