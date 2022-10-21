@@ -2,11 +2,12 @@ vim.opt.completeopt = {"menu", "menuone", "noselect"}
 
   -- Set up nvim-cmp.
   local cmp = require'cmp'
+  local lausnip = require("luasnip")
 
   cmp.setup({
     snippet = {
       expand = function(args)
-        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        luasnip.lsp_expand(args.body) -- For `luasnip` users.
       end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -19,6 +20,8 @@ vim.opt.completeopt = {"menu", "menuone", "noselect"}
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' }, -- For luasnip users.
+      { name = 'nvim_lua' }, -- For luasnip users.
+      { name = 'path' }, -- For luasnip users.
     }, {
       { name = 'buffer' },
     })
